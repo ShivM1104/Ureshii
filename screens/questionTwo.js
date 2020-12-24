@@ -1,32 +1,24 @@
 import React from 'react';
-import {useState} from 'react';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { Block, theme } from 'galio-framework';
+
 import {
   ImageBackground,
   Image,
-  StyleSheet,
   StatusBar,
-  Dimensions,
 } from 'react-native';
-import { Block, Button, Text, Input, Icon, theme } from 'galio-framework';
 
-const { height, width } = Dimensions.get('screen');
+import { Button, Text, Input, Icon } from 'galio-framework';
 
-import argonTheme from '../constants/Theme';
-import Images from '../constants/Images';
+import { Card } from '../components';
+import articles from '../constants/articles';
+const { width } = Dimensions.get('screen');
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-class Onboarding extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHidden: false,
-    };
-  }
-
+class questionTwo extends React.Component {
   render() {
     const { navigation } = this.props;
-    const [text, setText] = useState('');
 
     return (
       <Block flex style={styles.container}>
@@ -35,20 +27,19 @@ class Onboarding extends React.Component {
 
         <Block center flex={1}>
           <Text color='darkslateblue' size={60} fontWeight='bold'>
-            Welcome!
+            Hey there!
           </Text>
         </Block>
 
         <Block flex style={styles.question}>
           <Block style={styles.text} padding='2%'>
             <Text color='darkslateblue' size={20} textAlign='left'>
-              What's your name?
+              How many hours of sleep did you get last night?
             </Text>
           </Block>
 
           <Block center width={350}>
-            <Input right placeholder='e.g John Doe' onChangeText={text => setText(text)} defaultValue={text}/>
-            console.log(text);
+            <Input right placeholder='e.g 2 hour(s)' />
           </Block>
           <Block
             flex
@@ -56,7 +47,7 @@ class Onboarding extends React.Component {
             paddingTop='10%'
             alignItems='center'
           >
-            <Button onPress={() => navigation.navigate('App')}>Next</Button>
+            <Button onPress={() => navigation.navigate('questionThree')}>Next</Button>
           </Block>
         </Block>
       </Block>
@@ -106,4 +97,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Onboarding;
+export default questionTwo;

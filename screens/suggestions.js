@@ -1,32 +1,24 @@
 import React from 'react';
-import {useState} from 'react';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { Block, theme } from 'galio-framework';
+
 import {
   ImageBackground,
   Image,
-  StyleSheet,
   StatusBar,
-  Dimensions,
 } from 'react-native';
-import { Block, Button, Text, Input, Icon, theme } from 'galio-framework';
 
-const { height, width } = Dimensions.get('screen');
+import { Button, Text, Input, Icon } from 'galio-framework';
 
-import argonTheme from '../constants/Theme';
-import Images from '../constants/Images';
+import { Card } from '../components';
+import articles from '../constants/articles';
+const { width } = Dimensions.get('screen');
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-class Onboarding extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHidden: false,
-    };
-  }
-
+class suggestions extends React.Component {
   render() {
     const { navigation } = this.props;
-    const [text, setText] = useState('');
 
     return (
       <Block flex style={styles.container}>
@@ -35,21 +27,42 @@ class Onboarding extends React.Component {
 
         <Block center flex={1}>
           <Text color='darkslateblue' size={60} fontWeight='bold'>
-            Welcome!
+            Suggestions
           </Text>
         </Block>
 
-        <Block flex style={styles.question}>
-          <Block style={styles.text} padding='2%'>
-            <Text color='darkslateblue' size={20} textAlign='left'>
-              What's your name?
+
+        <Block center flex={5}>
+          <Block padding='2%'>
+            <Block>
+            <Text color='darkslateblue' size={20} textAlign='center'>
+           Our Observations
             </Text>
+            <Text color='steelblue' size={15} textAlign='left'>
+            - Your plateau in the middle was caused due to an incomplete diet
+            </Text>
+            </Block>
+
+            <Block paddingTop="10%">
+            <Text color='darkslateblue' size={20} textAlign='center'>
+           Our Observations
+            </Text>
+            <Text color='steelblue' size={15} textAlign='left'>
+            - Your plateau in the middle was caused due to an incomplete diet
+            </Text>
+            </Block>
+
+            <Block paddingTop="10%">
+            <Text color='darkslateblue' size={20} textAlign='center'>
+           Our Observations
+            </Text>
+            <Text color='steelblue' size={15} textAlign='left'>
+            - Your plateau in the middle was caused due to an incomplete diet
+            </Text>
+            </Block>
           </Block>
 
-          <Block center width={350}>
-            <Input right placeholder='e.g John Doe' onChangeText={text => setText(text)} defaultValue={text}/>
-            console.log(text);
-          </Block>
+  
           <Block
             flex
             style={styles.button}
@@ -79,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: theme.SIZES.BASE * 2,
     position: 'relative',
-    top: -150,
+    top: -200,
   },
   button: {
     width: width - theme.SIZES.BASE * 4,
@@ -100,10 +113,6 @@ const styles = StyleSheet.create({
   subTitle: {
     marginTop: 20,
   },
-  text: {
-    position: 'relative',
-    left: -15,
-  }
 });
 
-export default Onboarding;
+export default suggestions;
