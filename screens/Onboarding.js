@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import {
   ImageBackground,
   Image,
@@ -7,7 +8,6 @@ import {
   Dimensions,
 } from 'react-native';
 import { Block, Button, Text, Input, Icon, theme } from 'galio-framework';
-import Analysis from './Analysis';
 
 const { height, width } = Dimensions.get('screen');
 
@@ -15,9 +15,15 @@ import argonTheme from '../constants/Theme';
 import Images from '../constants/Images';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MyView from './MyView';
 
 class Onboarding extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHidden: false,
+    };
+  }
+
   render() {
     const { navigation } = this.props;
 
@@ -33,14 +39,14 @@ class Onboarding extends React.Component {
         </Block>
 
         <Block flex style={styles.question}>
-          <Block padding='2%'>
+          <Block style={styles.text} padding='2%'>
             <Text color='darkslateblue' size={20} textAlign='left'>
               What's your name?
             </Text>
           </Block>
 
-          <Block width={350}>
-            <Input right placeholder='e.g John Doe' />
+          <Block center width={350}>
+            <Input right placeholder='e.g John Doe' onChange={(name) => console.log(name.target.value) }/>
           </Block>
           <Block
             flex
@@ -92,6 +98,10 @@ const styles = StyleSheet.create({
   subTitle: {
     marginTop: 20,
   },
+  text: {
+    position: 'relative',
+    left: -15,
+  }
 });
 
 export default Onboarding;

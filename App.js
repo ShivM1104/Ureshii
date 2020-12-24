@@ -1,3 +1,4 @@
+import * as firebase from 'firebase';
 import React, { useState } from 'react';
 import { Image } from 'react-native';
 import { AppLoading } from 'expo';
@@ -36,6 +37,16 @@ function cacheImages(images) {
     }
   });
 }
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDAf4cxSiVwPnNDMt-fHJ4pCvJZx4YHZtk",
+  authDomain: "ureshii-cd5c0.firebaseapp.com",
+  databaseURL: "https://ureshii-cd5c0-default-rtdb.firebaseio.com/",
+  storageBucket: "ureshii-cd5c0.appspot.com",
+};
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export default (props) => {
   const [isLoadingComplete, setLoading] = useState(false);

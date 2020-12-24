@@ -15,7 +15,15 @@ import Profile from '../screens/Profile';
 import Register from '../screens/Register';
 import Elements from '../screens/Elements';
 import Articles from '../screens/Articles';
-import Analysis from '../screens/Analysis';
+import questionOne from '../screens/questionOne';
+import questionTwo from '../screens/questionTwo';
+import questionThree from '../screens/questionThree';
+import questionFour from '../screens/questionFour';
+import questionFive from '../screens/questionFive';
+import analytics from '../screens/analytics';
+import suggestions from '../screens/suggestions';
+
+
 // drawer
 import CustomDrawerContent from './Menu';
 
@@ -146,13 +154,8 @@ function HomeStack(props) {
         component={Home}
         options={{
           header: ({ navigation, scene }) => (
-            <Header
-              title='Home'
-              search
-              options
-              navigation={navigation}
-              scene={scene}
-            />
+            <Block>
+              </Block>
           ),
           cardStyle: { backgroundColor: '#F8F9FE' },
         }}
@@ -178,27 +181,138 @@ function HomeStack(props) {
   );
 }
 
+function questionOneStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='questionOne'
+        component={questionOne}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+              </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function questionTwoStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='questionTwo'
+        component={questionTwo}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+            </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function questionThreeStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='questionThree'
+        component={questionThree}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+            </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function questionFourStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='questionFour'
+        component={questionFour}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+            </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function questionFiveStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='questionFive'
+        component={questionFive}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+            </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function analyticsStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='analytics'
+        component={analytics}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+            </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function suggestionsStack(props) {
+  return (
+    <Stack.Navigator mode='card' headerMode='screen'>
+      <Stack.Screen
+        name='suggestions'
+        component={suggestions}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Block>
+            </Block>
+          ),
+          cardStyle: { backgroundColor: '#F8F9FE' },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 export default function OnboardingStack(props) {
   return (
     <Stack.Navigator mode='card' headerMode='none'>
       <Stack.Screen
         name='Onboarding'
         component={Onboarding}
-        option={{
-          headerTransparent: true,
-        }}
-      />
-      <Stack.Screen name='App' component={AppStack} />
-    </Stack.Navigator>
-  );
-}
-
-function AnalysisStack(props) {
-  return (
-    <Stack.Navigator mode='card' headerMode='none'>
-      <Stack.Screen
-        name='Analysis'
-        component={Analysis}
         option={{
           headerTransparent: true,
         }}
@@ -244,6 +358,13 @@ function AppStack(props) {
       <Drawer.Screen name='Account' component={Register} />
       <Drawer.Screen name='Elements' component={ElementsStack} />
       <Drawer.Screen name='Articles' component={ArticlesStack} />
+      <Drawer.Screen name='questionOne' component={questionOneStack} />
+      <Drawer.Screen name='questionTwo' component={questionTwoStack} />
+      <Drawer.Screen name='questionThree' component={questionThreeStack} />
+      <Drawer.Screen name='questionFour' component={questionFourStack} />
+      <Drawer.Screen name='questionFive' component={questionFiveStack} />
+      <Drawer.Screen name='analytics' component={analyticsStack} />
+      <Drawer.Screen name='suggestions' component={suggestionsStack} />
     </Drawer.Navigator>
   );
 }
