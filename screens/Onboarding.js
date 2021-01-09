@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import {
   ImageBackground,
   Image,
@@ -26,7 +25,6 @@ class Onboarding extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const [text, setText] = useState('');
 
     return (
       <Block flex style={styles.container}>
